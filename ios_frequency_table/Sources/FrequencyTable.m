@@ -52,11 +52,11 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 
 - (id)init
 {
-	self = [self initWithPosition:0.0 y:0.0 isWideScreen:NO];
+	self = [self initWithPositionWithX:0.0 withY:0.0 isWideScreen:NO];
 	return self;
 }
 
-- (id)initWithPosition:(CGFloat)x y:(CGFloat)y isWideScreen:(BOOL)isWide
+- (id)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide
 {
 	posX = x;
 	posY = y;

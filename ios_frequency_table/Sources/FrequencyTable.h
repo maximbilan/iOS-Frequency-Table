@@ -30,7 +30,7 @@
 	NSMutableArray *data;
 }
 
-- (id)initWithPosition:(CGFloat)x y:(CGFloat)y isWideScreen:(BOOL)isWide;
+- (id)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide;
 - (void)setData:(NSArray *)array withTotal:(float)total;
 
 @property (nonatomic, strong) NSString *title;

@@ -13,7 +13,7 @@ static const int FrequencyTableMaxRecordCount		= 10;
 static NSString * const FrequencyTableDefaultFont	= @"TrebuchetMS";
 static const CGFloat FrequencyTableRecordFontSize	= 16;
 static const CGFloat FrequencyTableHeaderFontSize	= 18;
-static const CGFloat FrequencyTableLineWidth		= 1.0f;
+static const CGFloat FrequencyTableLineWidth		= 1.0;
 
 static const CGFloat FrequencyTableXOffset			= 10;
 static const CGFloat FrequencyTableYOffset			= 30;
@@ -52,7 +52,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 
 - (id)init
 {
-	self = [self initWithPosition:0 y:0 isWideScreen:NO];
+	self = [self initWithPosition:0.0 y:0.0 isWideScreen:NO];
 	return self;
 }
 
@@ -62,24 +62,24 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	posY = y;
 	self.isWideScreen = isWide;
 	
-	CGFloat cellHeight = ( _isWideScreen ) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
-	CGFloat tableYOffset = ( _isWideScreen ) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
-	CGFloat width = ( 2 * FrequencyTableXOffset ) + FrequencyTableNameWidth + FrequencyTablePercentWidth + FrequencyTableValueWidth;
-	CGFloat height = cellHeight * FrequencyTableMaxRecordCount + ( 2 * tableYOffset ) + FrequencyTableTotalOffsetY;
+	CGFloat cellHeight = (_isWideScreen) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
+	CGFloat tableYOffset = (_isWideScreen) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
+	CGFloat width = (2 * FrequencyTableXOffset) + FrequencyTableNameWidth + FrequencyTablePercentWidth + FrequencyTableValueWidth;
+	CGFloat height = cellHeight * FrequencyTableMaxRecordCount + (2 * tableYOffset) + FrequencyTableTotalOffsetY;
 	
-	self = [self initWithFrame:CGRectMake( x, y, width, height)];
+	self = [self initWithFrame:CGRectMake(x, y, width, height)];
 	return self;
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if( self )
-	{
+    if (self) {
         data = [[NSMutableArray alloc] init];
-		totalData = 0.0f;
+		totalData = 0.0;
 		self.title = FrequencyTableTitleName;
     }
+    
     return self;
 }
 
@@ -90,37 +90,37 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
     posX = self.frame.origin.x;
     posY = self.frame.origin.y;
     data = [[NSMutableArray alloc] init];
-    totalData = 0.0f;
+    totalData = 0.0;
     self.title = FrequencyTableTitleName;
     self.isWideScreen = YES;
 }
 
 - (CGRect)computeFrameRect
 {
-	CGFloat cellHeight = ( _isWideScreen ) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
-	CGFloat tableYOffset = ( _isWideScreen ) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
-	CGFloat width = ( 2 * FrequencyTableXOffset ) + FrequencyTableNameWidth + FrequencyTablePercentWidth + FrequencyTableValueWidth;
-	CGFloat height = cellHeight * FrequencyTableMaxRecordCount + ( 2 * tableYOffset ) + FrequencyTableTotalOffsetY;
+	CGFloat cellHeight = (_isWideScreen) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
+	CGFloat tableYOffset = (_isWideScreen) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
+	CGFloat width = (2 * FrequencyTableXOffset) + FrequencyTableNameWidth + FrequencyTablePercentWidth + FrequencyTableValueWidth;
+	CGFloat height = cellHeight * FrequencyTableMaxRecordCount + (2 * tableYOffset) + FrequencyTableTotalOffsetY;
 	
-	return CGRectMake( posX, posY, width, height );
+	return CGRectMake(posX, posY, width, height);
 }
 
 - (void)drawRect:(CGRect)rect
 {
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextClearRect( context, rect );
+	CGContextClearRect(context, rect);
 	
-	CGContextSetFillColorWithColor( context, [UIColor whiteColor].CGColor );
-	CGContextFillRect( context, rect );
+	CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+	CGContextFillRect(context, rect);
 	
 	// Define general sizes
-	CGFloat viewWidth = CGRectGetWidth( rect );
+	CGFloat viewWidth = CGRectGetWidth(rect);
 	CGFloat cellNameWidth = FrequencyTableNameWidth;
 	CGFloat cellValueWidth = FrequencyTableValueWidth;
 	CGFloat cellPercentWidth = FrequencyTablePercentWidth;
-	CGFloat cellHeight = ( _isWideScreen ) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
+	CGFloat cellHeight = (_isWideScreen) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
 	CGFloat tableXOffset = FrequencyTableXOffset;
-	CGFloat tableYOffset = ( _isWideScreen ) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
+	CGFloat tableYOffset = (_isWideScreen) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
 	CGFloat tableTotalYOffset = FrequencyTableTotalOffsetY;
 	CGFloat tableMaxRecords = FrequencyTableMaxRecordCount;
 	
@@ -146,50 +146,49 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 													withAlignment:NSTextAlignmentFromCTTextAlignment(kCTTextAlignmentRight)];
 	
 	// Draw lines
-	CGContextSetFillColorWithColor( context, [UIColor blackColor].CGColor );
-	CGContextSetLineCap( context, kCGLineCapSquare );
-    CGContextSetStrokeColorWithColor( context, [UIColor blackColor].CGColor );
-    CGContextSetLineWidth( context, FrequencyTableLineWidth );
-    CGContextMoveToPoint( context, 0, cellHeight );
-    CGContextAddLineToPoint( context, viewWidth, cellHeight );
-	CGContextStrokePath( context );
+	CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+	CGContextSetLineCap(context, kCGLineCapSquare);
+    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextSetLineWidth(context, FrequencyTableLineWidth);
+    CGContextMoveToPoint(context, 0, cellHeight);
+    CGContextAddLineToPoint(context, viewWidth, cellHeight);
+	CGContextStrokePath(context);
 	
-	CGContextSetFillColorWithColor( context, [UIColor blackColor].CGColor );
-	CGContextSetLineCap( context, kCGLineCapSquare );
-    CGContextSetStrokeColorWithColor( context, [UIColor blackColor].CGColor );
-    CGContextSetLineWidth( context, FrequencyTableLineWidth );
-    CGContextMoveToPoint( context, 0, cellHeight * tableMaxRecords + tableYOffset );
-    CGContextAddLineToPoint( context, viewWidth, cellHeight * tableMaxRecords + tableYOffset );
-	CGContextStrokePath( context );
+	CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+	CGContextSetLineCap(context, kCGLineCapSquare);
+    CGContextSetStrokeColorWithColor( context, [UIColor blackColor].CGColor);
+    CGContextSetLineWidth(context, FrequencyTableLineWidth);
+    CGContextMoveToPoint(context, 0, cellHeight * tableMaxRecords + tableYOffset);
+    CGContextAddLineToPoint(context, viewWidth, cellHeight * tableMaxRecords + tableYOffset);
+	CGContextStrokePath(context);
 	
 	// Draw titles
-	[_title drawInRect:CGRectMake( tableXOffset, 0, cellNameWidth, cellHeight) withAttributes:attributesTitleLeft];
+	[self.title drawInRect:CGRectMake(tableXOffset, 0, cellNameWidth, cellHeight) withAttributes:attributesTitleLeft];
 	
 	NSString *percentTitle = FrequencyTableTitlePercent;
-	[percentTitle drawInRect:CGRectMake( cellNameWidth + tableXOffset, 0, cellPercentWidth, cellHeight ) withAttributes:attributesTitleRight];
+	[percentTitle drawInRect:CGRectMake(cellNameWidth + tableXOffset, 0, cellPercentWidth, cellHeight) withAttributes:attributesTitleRight];
 	
 	NSString *valueTitle = FrequencyTableTitleValue;
-	[valueTitle drawInRect:CGRectMake( cellNameWidth+cellPercentWidth + tableXOffset, 0, cellValueWidth, cellHeight) withAttributes:attributesTitleRight];
+	[valueTitle drawInRect:CGRectMake(cellNameWidth + cellPercentWidth + tableXOffset, 0, cellValueWidth, cellHeight) withAttributes:attributesTitleRight];
 	
 	// Draw table
 	CGFloat x = tableXOffset;
 	CGFloat y = tableYOffset;
-    for( FrequencyTableRecordDerived *record in data )
-	{
+    for(FrequencyTableRecordDerived *record in data) {
 		NSString *name = record.name;
 		NSString *percent = [NSString stringWithFormat:FrequencyTablePercentFormat, record.percent];
 		NSString *value = [NSString stringWithFormat:FrequencyTableValueFormat, record.value];
 		
-		[name drawInRect:CGRectMake( x, y, cellNameWidth, cellHeight ) withAttributes:attributesBlackLeft];
-		[percent drawInRect:CGRectMake( x + cellNameWidth, y, cellPercentWidth, cellHeight ) withAttributes:attributesBlackRight];
-		[value drawInRect:CGRectMake( x + cellNameWidth + cellPercentWidth,y, cellValueWidth, cellHeight ) withAttributes:attributesBlackRight];
+		[name drawInRect:CGRectMake(x, y, cellNameWidth, cellHeight) withAttributes:attributesBlackLeft];
+		[percent drawInRect:CGRectMake(x + cellNameWidth, y, cellPercentWidth, cellHeight) withAttributes:attributesBlackRight];
+		[value drawInRect:CGRectMake(x + cellNameWidth + cellPercentWidth,y, cellValueWidth, cellHeight) withAttributes:attributesBlackRight];
 		
 		y += cellHeight;
 	}
 	
 	// Draw total value
 	NSString *totalValue = [NSString stringWithFormat:FrequencyTableValueFormat, totalData];
-	[totalValue drawInRect:CGRectMake(x + cellNameWidth + cellPercentWidth, cellHeight * tableMaxRecords + tableYOffset + tableTotalYOffset, cellValueWidth, cellPercentWidth )
+	[totalValue drawInRect:CGRectMake(x + cellNameWidth + cellPercentWidth, cellHeight * tableMaxRecords + tableYOffset + tableTotalYOffset, cellValueWidth, cellPercentWidth)
             withAttributes:attributesBlackRight];
 }
 
@@ -203,25 +202,21 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
     NSArray *sortedArray = [array sortedArrayUsingDescriptors:sortDescriptors];
     
 	int index = 0;
-	float otherValue = 0.0f;
+	float otherValue = 0.0;
 	BOOL moreThanMaxRecordsCount = NO;
-	for( FrequencyTableRecord *record in sortedArray )
-	{
-		if( index >= FrequencyTableMaxRecordCount - 1 )
-		{
+	for (FrequencyTableRecord *record in sortedArray) {
+		if (index >= FrequencyTableMaxRecordCount - 1) {
 			moreThanMaxRecordsCount = YES;
 			otherValue += record.value;
 		}
-		else
-		{
+		else {
 			[self addRecordToTableData:record.name withValue:record.value withTotal:total];
 		}
 		
 		++index;
 	}
 	
-	if( moreThanMaxRecordsCount )
-	{
+	if (moreThanMaxRecordsCount) {
 		[self addRecordToTableData:@"Other" withValue:otherValue withTotal:total];
 	}
 	
@@ -235,7 +230,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	FrequencyTableRecordDerived* derivedRecord = [[FrequencyTableRecordDerived alloc] init];
 	derivedRecord.name = name;
 	derivedRecord.value = value;
-	derivedRecord.percent = ( derivedRecord.value * 100.0f ) / total;
+	derivedRecord.percent = (derivedRecord.value * 100.0) / total;
 	
 	[data addObject:derivedRecord];
 }

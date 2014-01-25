@@ -13,9 +13,9 @@ Add to your project source files: <br>
 </pre>
 You can add view in the Interface builder and set class to FrequencyTable or create in the code: <br>
 <pre>
-  FrequencyTable *frequencyTable = [[FrequencyTable alloc] initWithPosition:0
-                                                                          y:0
-                                                               isWideScreen:YES];
+  FrequencyTable *frequencyTable = [[FrequencyTable alloc] initWithPositionWithX:0
+                                                                           withY:0
+                                                                    isWideScreen:YES];
   [self.view addSubview:frequencyTable];
 </pre>
 For adding table data, you can use the following code: <br>
@@ -33,3 +33,9 @@ For adding table data, you can use the following code: <br>
   
   [self.frequencyTable setData:array withTotal:total];
 </pre>
+
+Apps using frequency table
+============
+
+<a href="https://itunes.apple.com/us/app/wymg/id769463031">Wymg</a> - Where your money goes? Want to know? Easiest way to track your expenses, use wymg. Designed with simplicity and usability. With just a few taps you can track your expense or check purchases.
+

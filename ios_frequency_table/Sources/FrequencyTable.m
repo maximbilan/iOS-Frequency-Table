@@ -34,14 +34,9 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 
 @implementation FrequencyTableRecord
 
-@synthesize name;
-@synthesize value;
-
 @end
 
 @implementation FrequencyTableRecordDerived
-
-@synthesize percent;
 
 @end
 
@@ -55,9 +50,6 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 
 @implementation FrequencyTable
 
-@synthesize title = _title;
-@synthesize isWideScreen = _isWideScreen;
-
 - (id)init
 {
 	self = [self initWithPosition:0 y:0 isWideScreen:NO];
@@ -68,7 +60,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 {
 	posX = x;
 	posY = y;
-	_isWideScreen = isWide;
+	self.isWideScreen = isWide;
 	
 	CGFloat cellHeight = ( _isWideScreen ) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
 	CGFloat tableYOffset = ( _isWideScreen ) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
@@ -86,7 +78,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	{
         data = [[NSMutableArray alloc] init];
 		totalData = 0.0f;
-		_title = FrequencyTableTitleName;
+		self.title = FrequencyTableTitleName;
     }
     return self;
 }
@@ -95,7 +87,12 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 {
     [super awakeFromNib];
     
-    _isWideScreen = YES;
+    posX = self.frame.origin.x;
+    posY = self.frame.origin.y;
+    data = [[NSMutableArray alloc] init];
+    totalData = 0.0f;
+    self.title = FrequencyTableTitleName;
+    self.isWideScreen = YES;
 }
 
 - (CGRect)computeFrameRect

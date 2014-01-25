@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "FrequencyTable.h"
+
 @interface ViewController ()
 
 @end
@@ -17,13 +19,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    //FrequencyTable *frequencyTable = [[FrequencyTable alloc] initWithPosition:10 y:50 isWideScreen:YES];
+	//[self.view addSubview:frequencyTable];
 }
 
 @end

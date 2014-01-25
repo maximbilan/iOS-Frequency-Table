@@ -17,6 +17,7 @@
 		940CE8C91893F2A000E711A7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940CE8C71893F2A000E711A7 /* Main_iPad.storyboard */; };
 		940CE8CC1893F2A000E711A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 940CE8CB1893F2A000E711A7 /* ViewController.m */; };
 		940CE8CE1893F2A000E711A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940CE8CD1893F2A000E711A7 /* Images.xcassets */; };
+		940CE8ED1893F40900E711A7 /* FrequencyTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 940CE8EC1893F40900E711A7 /* FrequencyTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		940CE8CB1893F2A000E711A7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		940CE8CD1893F2A000E711A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		940CE8D41893F2A000E711A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		940CE8EB1893F40900E711A7 /* FrequencyTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyTable.h; sourceTree = "<group>"; };
+		940CE8EC1893F40900E711A7 /* FrequencyTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencyTable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 		940CE8B81893F2A000E711A7 /* ios_frequency_table */ = {
 			isa = PBXGroup;
 			children = (
+				940CE8EA1893F3DE00E711A7 /* Sources */,
 				940CE8C11893F2A000E711A7 /* AppDelegate.h */,
 				940CE8C21893F2A000E711A7 /* AppDelegate.m */,
 				940CE8C41893F2A000E711A7 /* Main_iPhone.storyboard */,
@@ -104,6 +108,15 @@
 				940CE8C01893F2A000E711A7 /* ios_frequency_table-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		940CE8EA1893F3DE00E711A7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				940CE8EB1893F40900E711A7 /* FrequencyTable.h */,
+				940CE8EC1893F40900E711A7 /* FrequencyTable.m */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				940CE8CC1893F2A000E711A7 /* ViewController.m in Sources */,
+				940CE8ED1893F40900E711A7 /* FrequencyTable.m in Sources */,
 				940CE8C31893F2A000E711A7 /* AppDelegate.m in Sources */,
 				940CE8BF1893F2A000E711A7 /* main.m in Sources */,
 			);
@@ -327,6 +341,7 @@
 				940CE8E61893F2A000E711A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     BOOL isWide = (BOOL)(fabs((double)[UIScreen mainScreen].bounds.size.height - (double)568) < DBL_EPSILON);
-    self.frequencyTable.isWideScreen = ( isWide || ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ));
+    self.frequencyTable.isWideScreen = (isWide || ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad));
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     

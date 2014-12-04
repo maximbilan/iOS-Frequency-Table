@@ -41,6 +41,13 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 @end
 
 @interface FrequencyTable ()
+{
+    CGFloat	posX;
+    CGFloat	posY;
+    
+    float totalData;
+    NSMutableArray *data;
+}
 
 - (NSDictionary *)generateAttributes:(NSString *)fontName withFontSize:(CGFloat)fontSize withColor:(UIColor *)color withAlignment:(NSTextAlignment)textAlignment;
 - (void)addRecordToTableData:(NSString *)name withValue:(float)value withTotal:(float)total;

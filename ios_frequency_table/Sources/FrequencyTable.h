@@ -22,13 +22,6 @@
 @end
 
 @interface FrequencyTable : UIView
-{
-	CGFloat	posX;
-	CGFloat	posY;
-	
-	float totalData;
-	NSMutableArray *data;
-}
 
 - (id)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide;
 - (void)setData:(NSArray *)array withTotal:(float)total;

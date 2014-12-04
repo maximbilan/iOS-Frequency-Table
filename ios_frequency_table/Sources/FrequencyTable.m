@@ -51,19 +51,19 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 
 - (NSDictionary *)generateAttributes:(NSString *)fontName withFontSize:(CGFloat)fontSize withColor:(UIColor *)color withAlignment:(NSTextAlignment)textAlignment;
 - (void)addRecordToTableData:(NSString *)name withValue:(float)value withTotal:(float)total;
-- (CGRect)computeFrameRect;
+@property (NS_NONATOMIC_IOSONLY, readonly) CGRect computeFrameRect;
 
 @end
 
 @implementation FrequencyTable
 
-- (id)init
+- (instancetype)init
 {
 	self = [self initWithPositionWithX:0.0 withY:0.0 isWideScreen:NO];
 	return self;
 }
 
-- (id)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide
+- (instancetype)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide
 {
 	posX = x;
 	posY = y;
@@ -78,7 +78,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	return self;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -205,7 +205,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	
     NSSortDescriptor *sortDescriptorValue = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:NO];
 	NSSortDescriptor *sortDescriptorName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
-	NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptorValue, sortDescriptorName, nil];
+	NSArray *sortDescriptors = @[sortDescriptorValue, sortDescriptorName];
     NSArray *sortedArray = [array sortedArrayUsingDescriptors:sortDescriptors];
     
 	int index = 0;

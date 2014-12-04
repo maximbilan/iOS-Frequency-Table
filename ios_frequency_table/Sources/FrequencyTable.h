@@ -23,7 +23,7 @@
 
 @interface FrequencyTable : UIView
 
-- (id)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide;
+- (instancetype)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide;
 - (void)setData:(NSArray *)array withTotal:(float)total;
 
 @property (nonatomic, strong) NSString *title;

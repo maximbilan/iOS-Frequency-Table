@@ -8,29 +8,29 @@
 
 #import "FrequencyTable.h"
 
-static const int FrequencyTableMaxRecordCount		= 10;
+static const int kFrequencyTableMaxRecordCount		= 10;
 
-static NSString * const FrequencyTableDefaultFont	= @"TrebuchetMS";
-static const CGFloat FrequencyTableRecordFontSize	= 16;
-static const CGFloat FrequencyTableHeaderFontSize	= 18;
-static const CGFloat FrequencyTableLineWidth		= 1.0;
+static NSString * const kFrequencyTableDefaultFont	= @"TrebuchetMS";
+static const CGFloat kFrequencyTableRecordFontSize	= 16;
+static const CGFloat kFrequencyTableHeaderFontSize	= 18;
+static const CGFloat kFrequencyTableLineWidth		= 1.0;
 
-static const CGFloat FrequencyTableXOffset			= 10;
-static const CGFloat FrequencyTableYOffset			= 30;
-static const CGFloat FrequencyTableYWideOffset		= 40;
-static const CGFloat FrequencyTableNameWidth		= 140;
-static const CGFloat FrequencyTablePercentWidth		= 45;
-static const CGFloat FrequencyTableValueWidth		= 85;
-static const CGFloat FrequencyTableCellHeight		= 25;
-static const CGFloat FrequencyTableCellWideHeight	= 30;
-static const CGFloat FrequencyTableTotalOffsetY		= 10;
+static const CGFloat kFrequencyTableXOffset			= 10;
+static const CGFloat kFrequencyTableYOffset			= 30;
+static const CGFloat kFrequencyTableYWideOffset		= 40;
+static const CGFloat kFrequencyTableNameWidth		= 140;
+static const CGFloat kFrequencyTablePercentWidth		= 45;
+static const CGFloat kFrequencyTableValueWidth		= 85;
+static const CGFloat kFrequencyTableCellHeight		= 25;
+static const CGFloat kFrequencyTableCellWideHeight	= 30;
+static const CGFloat kFrequencyTableTotalOffsetY		= 10;
 
-static NSString * const FrequencyTableTitleName		= @"Category";
-static NSString * const FrequencyTableTitlePercent	= @"%";
-static NSString * const FrequencyTableTitleValue	= @"total";
+static NSString * const kFrequencyTableTitleName		= @"Category";
+static NSString * const kFrequencyTableTitlePercent	= @"%";
+static NSString * const kFrequencyTableTitleValue	= @"total";
 
-static NSString * const FrequencyTableValueFormat	= @"%.01f";
-static NSString * const FrequencyTablePercentFormat	= @"%.01f";
+static NSString * const kFrequencyTableValueFormat	= @"%.01f";
+static NSString * const kFrequencyTablePercentFormat	= @"%.01f";
 
 @implementation FrequencyTableRecord
 
@@ -51,6 +51,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 
 - (NSDictionary *)generateAttributes:(NSString *)fontName withFontSize:(CGFloat)fontSize withColor:(UIColor *)color withAlignment:(NSTextAlignment)textAlignment;
 - (void)addRecordToTableData:(NSString *)name withValue:(float)value withTotal:(float)total;
+
 @property (NS_NONATOMIC_IOSONLY, readonly) CGRect computeFrameRect;
 
 @end
@@ -69,10 +70,10 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	posY = y;
 	self.isWideScreen = isWide;
 	
-	CGFloat cellHeight = (_isWideScreen) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
-	CGFloat tableYOffset = (_isWideScreen) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
-	CGFloat width = (2 * FrequencyTableXOffset) + FrequencyTableNameWidth + FrequencyTablePercentWidth + FrequencyTableValueWidth;
-	CGFloat height = cellHeight * FrequencyTableMaxRecordCount + (2 * tableYOffset) + FrequencyTableTotalOffsetY;
+	CGFloat cellHeight = (_isWideScreen) ? kFrequencyTableCellWideHeight : kFrequencyTableCellHeight;
+	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;
+	CGFloat width = (2 * kFrequencyTableXOffset) + kFrequencyTableNameWidth + kFrequencyTablePercentWidth + kFrequencyTableValueWidth;
+	CGFloat height = cellHeight * kFrequencyTableMaxRecordCount + (2 * tableYOffset) + kFrequencyTableTotalOffsetY;
 	
 	self = [self initWithFrame:CGRectMake(x, y, width, height)];
 	return self;
@@ -84,7 +85,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
     if (self) {
         data = [[NSMutableArray alloc] init];
 		totalData = 0.0;
-		self.title = FrequencyTableTitleName;
+		self.title = kFrequencyTableTitleName;
     }
     
     return self;
@@ -98,16 +99,16 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
     posY = self.frame.origin.y;
     data = [[NSMutableArray alloc] init];
     totalData = 0.0;
-    self.title = FrequencyTableTitleName;
+    self.title = kFrequencyTableTitleName;
     self.isWideScreen = YES;
 }
 
 - (CGRect)computeFrameRect
 {
-	CGFloat cellHeight = (_isWideScreen) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
-	CGFloat tableYOffset = (_isWideScreen) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
-	CGFloat width = (2 * FrequencyTableXOffset) + FrequencyTableNameWidth + FrequencyTablePercentWidth + FrequencyTableValueWidth;
-	CGFloat height = cellHeight * FrequencyTableMaxRecordCount + (2 * tableYOffset) + FrequencyTableTotalOffsetY;
+	CGFloat cellHeight = (_isWideScreen) ? kFrequencyTableCellWideHeight : kFrequencyTableCellHeight;
+	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;
+	CGFloat width = (2 * kFrequencyTableXOffset) + kFrequencyTableNameWidth + kFrequencyTablePercentWidth + kFrequencyTableValueWidth;
+	CGFloat height = cellHeight * kFrequencyTableMaxRecordCount + (2 * tableYOffset) + kFrequencyTableTotalOffsetY;
 	
 	return CGRectMake(posX, posY, width, height);
 }
@@ -122,33 +123,33 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	
 	// Define general sizes
 	CGFloat viewWidth = CGRectGetWidth(rect);
-	CGFloat cellNameWidth = FrequencyTableNameWidth;
-	CGFloat cellValueWidth = FrequencyTableValueWidth;
-	CGFloat cellPercentWidth = FrequencyTablePercentWidth;
-	CGFloat cellHeight = (_isWideScreen) ? FrequencyTableCellWideHeight : FrequencyTableCellHeight;
-	CGFloat tableXOffset = FrequencyTableXOffset;
-	CGFloat tableYOffset = (_isWideScreen) ? FrequencyTableYWideOffset : FrequencyTableYOffset;
-	CGFloat tableTotalYOffset = FrequencyTableTotalOffsetY;
-	CGFloat tableMaxRecords = FrequencyTableMaxRecordCount;
+	CGFloat cellNameWidth = kFrequencyTableNameWidth;
+	CGFloat cellValueWidth = kFrequencyTableValueWidth;
+	CGFloat cellPercentWidth = kFrequencyTablePercentWidth;
+	CGFloat cellHeight = (_isWideScreen) ? kFrequencyTableCellWideHeight : kFrequencyTableCellHeight;
+	CGFloat tableXOffset = kFrequencyTableXOffset;
+	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;
+	CGFloat tableTotalYOffset = kFrequencyTableTotalOffsetY;
+	CGFloat tableMaxRecords = kFrequencyTableMaxRecordCount;
 	
 	// Define attributes
-	NSDictionary *attributesTitleLeft = [self generateAttributes:FrequencyTableDefaultFont
-													withFontSize:FrequencyTableHeaderFontSize
+	NSDictionary *attributesTitleLeft = [self generateAttributes:kFrequencyTableDefaultFont
+													withFontSize:kFrequencyTableHeaderFontSize
 													   withColor:[UIColor blackColor]
 												   withAlignment:NSTextAlignmentFromCTTextAlignment(kCTTextAlignmentLeft)];
 	
-	NSDictionary *attributesTitleRight = [self generateAttributes:FrequencyTableDefaultFont
-													 withFontSize:FrequencyTableHeaderFontSize
+	NSDictionary *attributesTitleRight = [self generateAttributes:kFrequencyTableDefaultFont
+													 withFontSize:kFrequencyTableHeaderFontSize
 														withColor:[UIColor blackColor]
 													withAlignment:NSTextAlignmentFromCTTextAlignment(kCTTextAlignmentRight)];
 	
-	NSDictionary *attributesBlackLeft = [self generateAttributes:FrequencyTableDefaultFont
-													withFontSize:FrequencyTableRecordFontSize
+	NSDictionary *attributesBlackLeft = [self generateAttributes:kFrequencyTableDefaultFont
+													withFontSize:kFrequencyTableRecordFontSize
 													   withColor:[UIColor blackColor]
 												   withAlignment:NSTextAlignmentFromCTTextAlignment(kCTTextAlignmentLeft)];
 	
-	NSDictionary *attributesBlackRight = [self generateAttributes:FrequencyTableDefaultFont
-													 withFontSize:FrequencyTableRecordFontSize
+	NSDictionary *attributesBlackRight = [self generateAttributes:kFrequencyTableDefaultFont
+													 withFontSize:kFrequencyTableRecordFontSize
 														withColor:[UIColor blackColor]
 													withAlignment:NSTextAlignmentFromCTTextAlignment(kCTTextAlignmentRight)];
 	
@@ -156,7 +157,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
 	CGContextSetLineCap(context, kCGLineCapSquare);
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    CGContextSetLineWidth(context, FrequencyTableLineWidth);
+    CGContextSetLineWidth(context, kFrequencyTableLineWidth);
     CGContextMoveToPoint(context, 0, cellHeight);
     CGContextAddLineToPoint(context, viewWidth, cellHeight);
 	CGContextStrokePath(context);
@@ -164,7 +165,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
 	CGContextSetLineCap(context, kCGLineCapSquare);
     CGContextSetStrokeColorWithColor( context, [UIColor blackColor].CGColor);
-    CGContextSetLineWidth(context, FrequencyTableLineWidth);
+    CGContextSetLineWidth(context, kFrequencyTableLineWidth);
     CGContextMoveToPoint(context, 0, cellHeight * tableMaxRecords + tableYOffset);
     CGContextAddLineToPoint(context, viewWidth, cellHeight * tableMaxRecords + tableYOffset);
 	CGContextStrokePath(context);
@@ -172,10 +173,10 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	// Draw titles
 	[self.title drawInRect:CGRectMake(tableXOffset, 0, cellNameWidth, cellHeight) withAttributes:attributesTitleLeft];
 	
-	NSString *percentTitle = FrequencyTableTitlePercent;
+	NSString *percentTitle = kFrequencyTableTitlePercent;
 	[percentTitle drawInRect:CGRectMake(cellNameWidth + tableXOffset, 0, cellPercentWidth, cellHeight) withAttributes:attributesTitleRight];
 	
-	NSString *valueTitle = FrequencyTableTitleValue;
+	NSString *valueTitle = kFrequencyTableTitleValue;
 	[valueTitle drawInRect:CGRectMake(cellNameWidth + cellPercentWidth + tableXOffset, 0, cellValueWidth, cellHeight) withAttributes:attributesTitleRight];
 	
 	// Draw table
@@ -183,8 +184,8 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	CGFloat y = tableYOffset;
     for(FrequencyTableRecordDerived *record in data) {
 		NSString *name = record.name;
-		NSString *percent = [NSString stringWithFormat:FrequencyTablePercentFormat, record.percent];
-		NSString *value = [NSString stringWithFormat:FrequencyTableValueFormat, record.value];
+		NSString *percent = [NSString stringWithFormat:kFrequencyTablePercentFormat, record.percent];
+		NSString *value = [NSString stringWithFormat:kFrequencyTableValueFormat, record.value];
 		
 		[name drawInRect:CGRectMake(x, y, cellNameWidth, cellHeight) withAttributes:attributesBlackLeft];
 		[percent drawInRect:CGRectMake(x + cellNameWidth, y, cellPercentWidth, cellHeight) withAttributes:attributesBlackRight];
@@ -194,7 +195,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	}
 	
 	// Draw total value
-	NSString *totalValue = [NSString stringWithFormat:FrequencyTableValueFormat, totalData];
+	NSString *totalValue = [NSString stringWithFormat:kFrequencyTableValueFormat, totalData];
 	[totalValue drawInRect:CGRectMake(x + cellNameWidth + cellPercentWidth, cellHeight * tableMaxRecords + tableYOffset + tableTotalYOffset, cellValueWidth, cellPercentWidth)
             withAttributes:attributesBlackRight];
 }
@@ -212,7 +213,7 @@ static NSString * const FrequencyTablePercentFormat	= @"%.01f";
 	float otherValue = 0.0;
 	BOOL moreThanMaxRecordsCount = NO;
 	for (FrequencyTableRecord *record in sortedArray) {
-		if (index >= FrequencyTableMaxRecordCount - 1) {
+		if (index >= kFrequencyTableMaxRecordCount - 1) {
 			moreThanMaxRecordsCount = YES;
 			otherValue += record.value;
 		}

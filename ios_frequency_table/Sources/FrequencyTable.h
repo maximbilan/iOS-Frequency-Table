@@ -29,4 +29,8 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic) BOOL isWideScreen;
 
+@property (nonatomic) CGFloat frequencyTableNameWidth;
+@property (nonatomic) CGFloat frequencyTablePercentWidth;
+@property (nonatomic) CGFloat frequencyTableValueWidth;
+
 @end

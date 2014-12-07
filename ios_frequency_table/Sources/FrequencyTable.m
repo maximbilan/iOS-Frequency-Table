@@ -86,6 +86,9 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
         data = [[NSMutableArray alloc] init];
 		totalData = 0.0;
 		self.title = kFrequencyTableTitleName;
+        self.frequencyTableNameWidth = kFrequencyTableNameWidth;
+        self.frequencyTablePercentWidth = kFrequencyTablePercentWidth;
+        self.frequencyTableValueWidth = kFrequencyTableValueWidth;
     }
     
     return self;
@@ -101,13 +104,16 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
     totalData = 0.0;
     self.title = kFrequencyTableTitleName;
     self.isWideScreen = YES;
+    self.frequencyTableNameWidth = kFrequencyTableNameWidth;
+    self.frequencyTablePercentWidth = kFrequencyTablePercentWidth;
+    self.frequencyTableValueWidth = kFrequencyTableValueWidth;
 }
 
 - (CGRect)computeFrameRect
 {
 	CGFloat cellHeight = (_isWideScreen) ? kFrequencyTableCellWideHeight : kFrequencyTableCellHeight;
 	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;
-	CGFloat width = (2 * kFrequencyTableXOffset) + kFrequencyTableNameWidth + kFrequencyTablePercentWidth + kFrequencyTableValueWidth;
+	CGFloat width = (2 * kFrequencyTableXOffset) + self.frequencyTableNameWidth + self.frequencyTablePercentWidth + self.frequencyTableValueWidth;
 	CGFloat height = cellHeight * kFrequencyTableMaxRecordCount + (2 * tableYOffset) + kFrequencyTableTotalOffsetY;
 	
 	return CGRectMake(posX, posY, width, height);
@@ -123,9 +129,9 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 	
 	// Define general sizes
 	CGFloat viewWidth = CGRectGetWidth(rect);
-	CGFloat cellNameWidth = kFrequencyTableNameWidth;
-	CGFloat cellValueWidth = kFrequencyTableValueWidth;
-	CGFloat cellPercentWidth = kFrequencyTablePercentWidth;
+    CGFloat cellNameWidth = self.frequencyTableNameWidth;
+	CGFloat cellValueWidth = self.frequencyTableValueWidth;
+	CGFloat cellPercentWidth = self.frequencyTablePercentWidth;
 	CGFloat cellHeight = (_isWideScreen) ? kFrequencyTableCellWideHeight : kFrequencyTableCellHeight;
 	CGFloat tableXOffset = kFrequencyTableXOffset;
 	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;

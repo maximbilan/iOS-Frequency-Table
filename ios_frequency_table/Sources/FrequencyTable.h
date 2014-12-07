@@ -31,8 +31,8 @@
 
 @property (nonatomic) NSInteger maxRecordCount;
 
-@property (nonatomic) CGFloat frequencyTableNameWidth;
-@property (nonatomic) CGFloat frequencyTablePercentWidth;
-@property (nonatomic) CGFloat frequencyTableValueWidth;
+@property (nonatomic) CGFloat nameWidth;
+@property (nonatomic) CGFloat percentWidth;
+@property (nonatomic) CGFloat valueWidth;
 
 @end

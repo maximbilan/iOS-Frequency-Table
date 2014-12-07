@@ -19,18 +19,18 @@ static const CGFloat kFrequencyTableXOffset			= 10;
 static const CGFloat kFrequencyTableYOffset			= 30;
 static const CGFloat kFrequencyTableYWideOffset		= 40;
 static const CGFloat kFrequencyTableNameWidth		= 140;
-static const CGFloat kFrequencyTablePercentWidth		= 45;
+static const CGFloat kFrequencyTablePercentWidth	= 45;
 static const CGFloat kFrequencyTableValueWidth		= 85;
 static const CGFloat kFrequencyTableCellHeight		= 25;
 static const CGFloat kFrequencyTableCellWideHeight	= 30;
-static const CGFloat kFrequencyTableTotalOffsetY		= 10;
+static const CGFloat kFrequencyTableTotalOffsetY	= 10;
 
-static NSString * const kFrequencyTableTitleName		= @"Category";
-static NSString * const kFrequencyTableTitlePercent	= @"%";
-static NSString * const kFrequencyTableTitleValue	= @"total";
+static NSString * const kFrequencyTableTitleName        = @"Category";
+static NSString * const kFrequencyTableTitlePercent     = @"%";
+static NSString * const kFrequencyTableTitleValue       = @"total";
 
-static NSString * const kFrequencyTableValueFormat	= @"%.01f";
-static NSString * const kFrequencyTablePercentFormat	= @"%.01f";
+static NSString * const kFrequencyTableValueFormat      = @"%.01f";
+static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 
 @implementation FrequencyTableRecord
 

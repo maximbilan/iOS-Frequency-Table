@@ -73,7 +73,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 	CGFloat cellHeight = (_isWideScreen) ? kFrequencyTableCellWideHeight : kFrequencyTableCellHeight;
 	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;
 	CGFloat width = (2 * kFrequencyTableXOffset) + kFrequencyTableNameWidth + kFrequencyTablePercentWidth + kFrequencyTableValueWidth;
-	CGFloat height = cellHeight * kFrequencyTableMaxRecordCount + (2 * tableYOffset) + kFrequencyTableTotalOffsetY;
+	CGFloat height = cellHeight * self.maxRecordCount + (2 * tableYOffset) + kFrequencyTableTotalOffsetY;
 	
 	self = [self initWithFrame:CGRectMake(x, y, width, height)];
 	return self;
@@ -86,6 +86,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
         data = [[NSMutableArray alloc] init];
 		totalData = 0.0;
 		self.title = kFrequencyTableTitleName;
+        self.maxRecordCount = kFrequencyTableMaxRecordCount;
         self.frequencyTableNameWidth = kFrequencyTableNameWidth;
         self.frequencyTablePercentWidth = kFrequencyTablePercentWidth;
         self.frequencyTableValueWidth = kFrequencyTableValueWidth;
@@ -103,6 +104,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
     data = [[NSMutableArray alloc] init];
     totalData = 0.0;
     self.title = kFrequencyTableTitleName;
+    self.maxRecordCount = kFrequencyTableMaxRecordCount;
     self.isWideScreen = YES;
     self.frequencyTableNameWidth = kFrequencyTableNameWidth;
     self.frequencyTablePercentWidth = kFrequencyTablePercentWidth;
@@ -114,7 +116,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 	CGFloat cellHeight = (_isWideScreen) ? kFrequencyTableCellWideHeight : kFrequencyTableCellHeight;
 	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;
 	CGFloat width = (2 * kFrequencyTableXOffset) + self.frequencyTableNameWidth + self.frequencyTablePercentWidth + self.frequencyTableValueWidth;
-	CGFloat height = cellHeight * kFrequencyTableMaxRecordCount + (2 * tableYOffset) + kFrequencyTableTotalOffsetY;
+	CGFloat height = cellHeight * self.maxRecordCount + (2 * tableYOffset) + kFrequencyTableTotalOffsetY;
 	
 	return CGRectMake(posX, posY, width, height);
 }
@@ -136,7 +138,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 	CGFloat tableXOffset = kFrequencyTableXOffset;
 	CGFloat tableYOffset = (_isWideScreen) ? kFrequencyTableYWideOffset : kFrequencyTableYOffset;
 	CGFloat tableTotalYOffset = kFrequencyTableTotalOffsetY;
-	CGFloat tableMaxRecords = kFrequencyTableMaxRecordCount;
+	CGFloat tableMaxRecords = self.maxRecordCount;
 	
 	// Define attributes
 	NSDictionary *attributesTitleLeft = [self generateAttributes:kFrequencyTableDefaultFont
@@ -219,7 +221,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 	float otherValue = 0.0;
 	BOOL moreThanMaxRecordsCount = NO;
 	for (FrequencyTableRecord *record in sortedArray) {
-		if (index >= kFrequencyTableMaxRecordCount - 1) {
+		if (index >= self.maxRecordCount - 1) {
 			moreThanMaxRecordsCount = YES;
 			otherValue += record.value;
 		}

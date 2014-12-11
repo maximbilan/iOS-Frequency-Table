@@ -45,12 +45,12 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
     CGFloat	posX;
     CGFloat	posY;
     
-    float totalData;
+    CGFloat totalData;
     NSMutableArray *data;
 }
 
 - (NSDictionary *)generateAttributes:(NSString *)fontName withFontSize:(CGFloat)fontSize withColor:(UIColor *)color withAlignment:(NSTextAlignment)textAlignment;
-- (void)addRecordToTableData:(NSString *)name withValue:(float)value withTotal:(float)total;
+- (void)addRecordToTableData:(NSString *)name withValue:(CGFloat)value withTotal:(CGFloat)total;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) CGRect computeFrameRect;
 
@@ -208,7 +208,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
             withAttributes:attributesBlackRight];
 }
 
-- (void)setData:(NSArray *)array withTotal:(float)total
+- (void)setData:(NSArray *)array withTotal:(CGFloat)total
 {
 	[data removeAllObjects];
 	
@@ -217,8 +217,8 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 	NSArray *sortDescriptors = @[sortDescriptorValue, sortDescriptorName];
     NSArray *sortedArray = [array sortedArrayUsingDescriptors:sortDescriptors];
     
-	int index = 0;
-	float otherValue = 0.0;
+	NSInteger index = 0;
+	CGFloat otherValue = 0.0;
 	BOOL moreThanMaxRecordsCount = NO;
 	for (FrequencyTableRecord *record in sortedArray) {
 		if (index >= self.maxRecordCount - 1) {
@@ -241,7 +241,7 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 	[self setNeedsDisplay];
 }
 
-- (void)addRecordToTableData:(NSString *)name withValue:(float)value withTotal:(float)total
+- (void)addRecordToTableData:(NSString *)name withValue:(CGFloat)value withTotal:(CGFloat)total
 {
 	FrequencyTableRecordDerived* derivedRecord = [[FrequencyTableRecordDerived alloc] init];
 	derivedRecord.name = name;

@@ -10,21 +10,21 @@
 
 @interface FrequencyTableRecord : NSObject
 
-@property (nonatomic, strong)  NSString *name;
-@property (nonatomic) float value;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic) CGFloat value;
 
 @end
 
 @interface FrequencyTableRecordDerived : FrequencyTableRecord
 
-@property (nonatomic) float percent;
+@property (nonatomic) CGFloat percent;
 
 @end
 
 @interface FrequencyTable : UIView
 
 - (instancetype)initWithPositionWithX:(CGFloat)x withY:(CGFloat)y isWideScreen:(BOOL)isWide;
-- (void)setData:(NSArray *)array withTotal:(float)total;
+- (void)setData:(NSArray *)array withTotal:(CGFloat)total;
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic) BOOL isWideScreen;

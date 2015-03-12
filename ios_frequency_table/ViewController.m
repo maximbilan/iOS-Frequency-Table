@@ -32,7 +32,7 @@
     float total = 0.0;
     for (NSInteger i = 0; i < 50; ++i) {
         FrequencyTableRecord *record = [[FrequencyTableRecord alloc] init];
-        record.name = [NSString stringWithFormat:@"Item %d", i];
+        record.name = [NSString stringWithFormat:@"Item %@", @(i)];
         record.value = RAND_FROM_TO(1, 500);
         total += record.value;
         [array addObject:record];

@@ -25,12 +25,12 @@ static const CGFloat kFrequencyTableCellHeight		= 25;
 static const CGFloat kFrequencyTableCellWideHeight	= 30;
 static const CGFloat kFrequencyTableTotalOffsetY	= 10;
 
-static NSString * const kFrequencyTableTitleName        = @"Category";
+static NSString * const kFrequencyTableTitleName		= @"Category";
 static NSString * const kFrequencyTableTitlePercent     = @"%";
 static NSString * const kFrequencyTableTitleValue       = @"total";
 
 static NSString * const kFrequencyTableValueFormat      = @"%.01f";
-static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
+static NSString * const kFrequencyTablePercentFormat	= @"%.01f";
 
 @implementation FrequencyTableRecord
 
@@ -44,7 +44,6 @@ static NSString * const kFrequencyTablePercentFormat    = @"%.01f";
 {
     CGFloat	posX;
     CGFloat	posY;
-    
     CGFloat totalData;
     NSMutableArray *data;
 }

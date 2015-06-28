@@ -4,6 +4,8 @@ iOS Frequency Table
 Frequency simple table component.<br><br><br>
 ![alt tag](https://raw.github.com/maximbilan/ios_frequency_table/master/img/img1.png)
 
+## Installation:
+
 <b>How to use:</b>
 <br>
 Add to your project source files: <br>
@@ -11,6 +13,9 @@ Add to your project source files: <br>
 FrequencyTable.h
 FrequencyTable.m
 </pre>
+
+## How to use:
+
 You can add view in the Interface builder and set class to FrequencyTable or create in the code: <br>
 <pre>
 FrequencyTable *frequencyTable = [[FrequencyTable alloc] initWithPositionWithX:0

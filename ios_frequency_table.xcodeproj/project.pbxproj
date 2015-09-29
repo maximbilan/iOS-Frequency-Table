@@ -145,7 +145,7 @@
 		940CE8A71893F2A000E711A7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Maxim Bilan";
 			};
 			buildConfigurationList = 940CE8AA1893F2A000E711A7 /* Build configuration list for PBXProject "ios_frequency_table" */;
@@ -240,6 +240,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -302,6 +303,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios_frequency_table/ios_frequency_table-Prefix.pch";
 				INFOPLIST_FILE = "ios_frequency_table/ios_frequency_table-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "maximbilan.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -315,6 +317,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios_frequency_table/ios_frequency_table-Prefix.pch";
 				INFOPLIST_FILE = "ios_frequency_table/ios_frequency_table-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "maximbilan.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

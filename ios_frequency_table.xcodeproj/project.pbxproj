@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D36B8EF1BBAE75000B63080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D36B8EE1BBAE75000B63080 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		940CE8B31893F2A000E711A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940CE8B21893F2A000E711A7 /* Foundation.framework */; };
 		940CE8B51893F2A000E711A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940CE8B41893F2A000E711A7 /* CoreGraphics.framework */; };
 		940CE8B71893F2A000E711A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940CE8B61893F2A000E711A7 /* UIKit.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D36B8EE1BBAE75000B63080 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		940CE8AF1893F2A000E711A7 /* ios_frequency_table.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_frequency_table.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		940CE8B21893F2A000E711A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		940CE8B41893F2A000E711A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,6 +93,7 @@
 				940CE8C21893F2A000E711A7 /* AppDelegate.m */,
 				940CE8C41893F2A000E711A7 /* Main_iPhone.storyboard */,
 				940CE8C71893F2A000E711A7 /* Main_iPad.storyboard */,
+				6D36B8EE1BBAE75000B63080 /* LaunchScreen.storyboard */,
 				940CE8CA1893F2A000E711A7 /* ViewController.h */,
 				940CE8CB1893F2A000E711A7 /* ViewController.m */,
 				940CE8CD1893F2A000E711A7 /* Images.xcassets */,
@@ -174,6 +177,7 @@
 				940CE8C91893F2A000E711A7 /* Main_iPad.storyboard in Resources */,
 				940CE8CE1893F2A000E711A7 /* Images.xcassets in Resources */,
 				940CE8C61893F2A000E711A7 /* Main_iPhone.storyboard in Resources */,
+				6D36B8EF1BBAE75000B63080 /* LaunchScreen.storyboard in Resources */,
 				940CE8BD1893F2A000E711A7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,14 +3,14 @@ iOS Frequency Table
 
 Frequency simple table control.<br><br><br>
 ![alt tag](https://raw.github.com/maximbilan/ios_frequency_table/master/img/img1.png)
-## Installation:
+## Installation
 Add to your project the next source files: <br>
 <pre>
 FrequencyTable.h
 FrequencyTable.m
 </pre>
 
-## How to use:
+## How to use
 
 You can add view in the Interface builder and set class to <i>FrequencyTable</i> or create in the code: <br>
 <pre>

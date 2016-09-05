@@ -10,7 +10,7 @@ FrequencyTable.h
 FrequencyTable.m
 </pre>
 
-## How to use
+## Using
 
 You can add view in the Interface builder and set class to <i>FrequencyTable</i> or create in the code: <br>
 <pre>

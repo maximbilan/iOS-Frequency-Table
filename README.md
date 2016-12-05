@@ -6,8 +6,8 @@ Frequency simple table control.<br><br><br>
 ## Installation
 Add to your project the next source files: <br>
 <pre>
-FrequencyTable.h
-FrequencyTable.m
+<i>FrequencyTable.h
+FrequencyTable.m</i>
 </pre>
 
 ## Using

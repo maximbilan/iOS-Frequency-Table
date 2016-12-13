@@ -4,7 +4,7 @@ iOS Frequency Table
 Frequency simple table control.<br><br><br>
 ![alt tag](https://raw.github.com/maximbilan/ios_frequency_table/master/img/img1.png)
 ## Installation
-Add to your project the next source files: <br>
+Add the next source files to your project:<br>
 <pre>
 <i>FrequencyTable.h
 FrequencyTable.m</i>

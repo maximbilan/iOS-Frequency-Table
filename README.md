@@ -12,7 +12,7 @@ FrequencyTable.m</i>
 
 ## Using
 
-You can add view in the Interface builder and set class to <i>FrequencyTable</i> or create in the code: <br>
+You can add view in the Interface Builder and set a class to <i>FrequencyTable</i> or create in the code: <br>
 <pre>
 FrequencyTable *frequencyTable = [[FrequencyTable alloc] initWithPositionWithX:0
                                                                          withY:0
